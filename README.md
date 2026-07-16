@@ -1,6 +1,6 @@
 # Pipeline Preditivo de Risco de Crédito
 
-> Projeto Final — Ciência de Dados Corporativa  
+> Projeto Final  
 > Autora: Alexia Colaco  
 > Dataset: Credit Risk Dataset (32.581 registros, 12 variáveis)
 
@@ -35,7 +35,7 @@ O objetivo é construir um modelo que minimize especialmente os Falsos Negativos
 **Qualidade dos dados:**
 - 5 registros com `person_age > 110` anos (provável erro de digitação) → removidos.
 - `loan_int_rate` com 3.116 nulos → imputados com a média (desvio padrão baixo, distribuição simétrica).
-- `person_emp_length` com 895 nulos → linhas removidas (sem tempo de emprego, dado sem valor preditivo claro).
+- `person_emp_length` com 895 nulos → linhas removidas (sem tempo de financiamento, dado sem valor preditivo claro).
 - `person_income` com valores até R$6 milhões → limitado a < R$500.000 para remover outliers extremos.
 
 **Correlações relevantes (Pearson):**
@@ -56,7 +56,7 @@ O objetivo é construir um modelo que minimize especialmente os Falsos Negativos
 
 **Balanceamento:** SMOTE aplicado apenas em `X_treino`/`y_treino`, gerando 17.380 amostras por classe. Teste mantido intacto para refletir o mundo real.
 
-**Escalonamento:** `StandardScaler` aplicado nos dados SMOTE para o KNN (`fit_transform`) e `transform` no teste. A Árvore de Decisão foi treinada **sem escalonamento**, pois seus cortes monotônicos são independentes de escala.
+**Escalonamento:** `StandardScaler` aplicado nos dados SMOTE para o KNN (`fit_transform`) e `transform` no teste. A Árvore de Decisão foi treinada **sem escalonamento**, pois nao interfere a escala.
 
 ---
 
